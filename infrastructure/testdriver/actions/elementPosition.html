@@ -25,6 +25,7 @@ div#test {
 let events = [];
 
 async_test(t => {
+  test_driver.prepare_for_input();
   let test = document.getElementById("test");
   test.addEventListener("click", e => {
     events.push(e.clientX);

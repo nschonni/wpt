@@ -44,7 +44,7 @@ document.addEventListener("scrollend", onScrollend);
 
 function runTest() {
   promise_test (async (t) => {
-    await waitForCompositorCommit();
+    await test_driver.prepare_for_input();
 
     // Scroll up on target div and wait for the doc to get overscroll event.
     await touchScrollInTarget(300, target_div, 'up');

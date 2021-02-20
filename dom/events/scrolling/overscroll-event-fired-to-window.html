@@ -42,6 +42,7 @@ function runTest() {
     // Make sure that no overscroll event is sent to target_div.
     target_div.addEventListener("overscroll",
         t.unreached_func("target_div got unexpected overscroll event."));
+    await test_driver.prepare_for_input();
     // Scroll up on target div and wait for the window to get overscroll event.
     await touchScrollInTarget(300, target_div, 'up');
     await waitFor(() => { return window_received_overscroll; },

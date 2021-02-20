@@ -49,7 +49,7 @@ function runTest() {
     // Make sure that no scrollend event is sent to target_div.
     target_div.addEventListener("scrollend",
         t.unreached_func("target_div got unexpected scrollend event."));
-    await waitForCompositorCommit();
+    await test_driver.prepare_for_input();
     // Scroll left on target div and wait for the doc to get scrollend event.
     await touchScrollInTarget(300, target_div, 'left');
     await waitFor(() => { return horizontal_scrollend_arrived; },

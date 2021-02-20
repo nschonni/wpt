@@ -31,6 +31,7 @@ async_test(t => {
   if(navigator.platform.includes('Mac'))
     edit_command_key = cmd_key;
 
+  test_driver.prepare_for_input();
   let actions = new test_driver.Actions()
       .pointerMove(0, 0, {origin: text1})
       .pointerDown()

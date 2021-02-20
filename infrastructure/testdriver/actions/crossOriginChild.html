@@ -7,6 +7,7 @@
 <script>
 let input = document.getElementsByTagName("input")[0];
 addEventListener("load", async () => {
+    test_driver.prepare_for_input();
     test_driver.set_test_context(parent);
     await new test_driver.Actions()
      .pointerMove(0, 0, {origin: input})

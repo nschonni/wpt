@@ -5,6 +5,8 @@
 <link rel="help" href="https://crbug.com/1165408">
 <link rel="match" href="nested-scale-animations-ref.html">
 <meta name="assert" content="Contents under nested scale animations should not be too blurry">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
 <script src="/common/reftest-wait.js"></script>
 <style>
 @keyframes scale {
@@ -33,5 +35,5 @@
   <div style="position: absolute; top: 95px; left: 0; width: 200px; height: 10px; background: white"></div>
 </div>
 <script>
-takeScreenshotDelayed(200);
+test_driver.prepare_for_input().then(_ => {takeScreenshotDelayed(200);});
 </script>

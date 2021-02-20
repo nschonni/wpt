@@ -55,6 +55,7 @@ async_test(t => {
     });
   }
 
+  test_driver.prepare_for_input();
   let div = document.getElementById("test");
   let actions = new test_driver.Actions()
     .addPointer("penPointer1", "pen")

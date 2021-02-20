@@ -11,6 +11,7 @@
 
 <script>
 setup({single_test: true});
+test_driver.prepare_for_input();
 addEventListener("load", async () => {
   let input = frames[0].document.getElementsByTagName("input")[0];
   await new test_driver.Actions()

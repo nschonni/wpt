@@ -37,6 +37,7 @@ div#test2 {
 let keys = [];
 
 promise_test(async t => {
+  test_driver.prepare_for_input();
   let test1 = document.getElementById("test1");
   let test2 = document.getElementById("test2");
   document.getElementById("test1").addEventListener("click",

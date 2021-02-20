@@ -10,6 +10,7 @@
 </form>
 <script>
 promise_test(() => {
+  test_driver.prepare_for_input();
   let form = document.getElementById("form");
   let input = document.getElementById("file_input");
   return test_driver

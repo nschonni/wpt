@@ -36,6 +36,7 @@ async_test(t => {
   document.getElementById("test1").addEventListener("pointermove",
     e => {event_type.push(e.type); event_id.push(e.pointerId);});
 
+  test_driver.prepare_for_input();
   let actions = new test_driver.Actions()
       .addPointer("touchPointer1", "touch")
       .addPointer("touchPointer2", "touch")

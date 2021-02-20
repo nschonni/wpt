@@ -24,7 +24,7 @@ let timeAfterClick;
 promise_test(async t => {
   assert_implements(window.LayoutShift, 'Layout Instability is not supported.');
   // Wait for the initial render to complete.
-  await waitForAnimationFrames(2);
+  await test_driver.prepare_for_input();
 
   const startTime = performance.now();
   return new Promise(resolve => {

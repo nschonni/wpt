@@ -55,7 +55,7 @@ function runTest() {
   let target_div = document.getElementById("targetDiv");
 
   promise_test (async (t) => {
-    await waitForCompositorCommit();
+    await test_driver.prepare_for_input();
     target_div.addEventListener("scrollend", onElementScrollEnd);
     document.addEventListener("scrollend", onDocumentScrollEnd);
 

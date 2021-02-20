@@ -59,7 +59,7 @@ scroller.addEventListener("scrollend", () => {
 
 function runTests() {
   promise_test (async () => {
-    await waitForCompositorCommit();
+    await test_driver.prepare_for_input();
     await touchScrollInTarget(100, scroller, 'down');
     // Wait for the scroll snap animation to finish.
     await waitForAnimationEnd(scrollTop);

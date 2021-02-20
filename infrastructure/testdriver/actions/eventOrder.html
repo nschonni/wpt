@@ -16,6 +16,8 @@
 // Therefore its actions happen first
 let events = [];
 
+test_driver.prepare_for_input();
+
 promise_test(() => {
   Array.prototype.forEach.call(document.getElementsByTagName("button"),
                                (x) => x.addEventListener("mousedown", () => {events.push(x.id)}));

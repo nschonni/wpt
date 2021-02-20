@@ -50,7 +50,9 @@ function run_test(pointerType){
   }), "click using " + pointerType + " is a PointerEvent");
 }
 
-run_test("mouse");
-run_test("pen");
+test_driver.prepare_for_input().then(function() {
+  run_test("mouse");
+  run_test("pen");
+});
 // TODO(crbug.com/1150593): Add wpt test for touch (reuse run_test)
 </script>

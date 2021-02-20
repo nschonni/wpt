@@ -4,6 +4,9 @@
 <meta name="assert" content="Scroll timeline should properly handle going from display:none to display:block">
 <link rel="match" href="animation-ref.html">
 
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
 <script src="/web-animations/testcommon.js"></script>
 <script src="/common/reftest-wait.js"></script>
 
@@ -60,7 +63,7 @@
   const animation = new Animation(effect, timeline);
   animation.play();
 
-  waitForAnimationFrames(2).then(_ => {
+  test_driver.prepare_for_input().then(_ => {
     scroller.classList.remove('removed');
     animation.ready.then(() => {
       const maxScroll = scroller.scrollHeight - scroller.clientHeight;

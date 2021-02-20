@@ -42,7 +42,7 @@ function runTest() {
     // Make sure that no overscroll event is sent to document.
     document.addEventListener("overscroll",
         t.unreached_func("Document got unexpected overscroll event."));
-    await waitForCompositorCommit();
+    await test_driver.prepare_for_input();
 
     // Do a horizontal scroll and wait for overscroll event.
     await touchScrollInTarget(300, scrolling_div , 'right');

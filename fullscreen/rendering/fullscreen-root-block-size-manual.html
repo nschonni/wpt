@@ -23,6 +23,7 @@ async_test(t => {
   document.documentElement.addEventListener('click', e => {
       document.documentElement.requestFullscreen();
   }, {once: true});
+  test_driver.prepare_for_input();
   test_driver.click(document.documentElement);
 });
 </script>

@@ -70,7 +70,7 @@ function runTest() {
         t.unreached_func("Document got unexpected scrollend event."));
     target_div.addEventListener("scrollend",
         t.unreached_func("target_div got unexpected scrollend event."));
-    await waitForCompositorCommit();
+    await test_driver.prepare_for_input();
 
     // Scroll left on target div and wait for the element with overscroll-x to
     // get scrollend event.

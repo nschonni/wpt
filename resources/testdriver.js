@@ -75,6 +75,17 @@
         },
 
         /**
+         * Force the test driver into a state where the loaded document is ready
+         * to process input.
+         *
+         * @returns {Promise} fulfilled when the test driver is ready to process
+         *                    events.
+         */
+        prepare_for_input: function() {
+            return window.test_driver_internal.prepare_for_input();
+        },
+
+        /**
          * Trigger user interaction in order to grant additional privileges to
          * a provided function.
          *
@@ -93,6 +104,7 @@
          *                    function throws an error
          */
         bless: function(intent, action, context=null) {
+            test_driver.prepare_for_input();
             let contextDocument = context ? context.document : document;
             var button = contextDocument.createElement("button");
             button.innerHTML = "This test requires user interaction.<br />" +
@@ -465,6 +477,18 @@
          * implementation of one of the methods is not available.
          */
         in_automation: false,
+
+        prepare_for_input: function() {
+            if (this.in_automation) {
+                return Promise.reject(new Error('Not implemented'));
+            }
+
+            return new Promise((resolve) => {
+                window.requestAnimationFrame(() => {
+                    window.requestAnimationFrame(resolve);
+                });
+            });
+        },
 
         click: function(element, coords) {
             if (this.in_automation) {

@@ -5,6 +5,9 @@
 layout changes on percentage-based scroll offset">
 <link rel="match" href="animation-ref.html">
 
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
 <script src="/web-animations/testcommon.js"></script>
 <script src="/common/reftest-wait.js"></script>
 
@@ -74,7 +77,7 @@ layout changes on percentage-based scroll offset">
   scroller.scrollTop = maxScroll * 0.6;
 
   // Makes sure that the animation runs on compositor with current scroll offset
-  waitForAnimationFrames(2).then(_ => {
+  test_driver.prepare_for_input().then(_ => {
     // Adds 80px to scroll height which pushes scroll progress back to 50%.
     const spacer = document.getElementById('spacer');
     spacer.classList.remove('invisible');

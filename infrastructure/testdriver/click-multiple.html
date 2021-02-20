@@ -18,6 +18,7 @@ buttons = [
 ];
 
 promise_test(async t => {
+  test_driver.prepare_for_input();
   clicked = [false, false, false];
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", () => {

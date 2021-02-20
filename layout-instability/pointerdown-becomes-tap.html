@@ -43,7 +43,7 @@ promise_test(async () => {
   const watcher = new ScoreWatcher;
 
   // Wait for the initial render to complete.
-  await waitForAnimationFrames(2);
+  await test_driver.prepare_for_input();
 
   // Send pointer events for a tap.
   await generateTapSequence().send();

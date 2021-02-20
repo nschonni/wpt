@@ -149,6 +149,7 @@
         t.done();
       }));
     });
+    test_driver.prepare_for_input();
     document.body.appendChild(b);
     test_driver.click(b);
   }, "Same-origin window, user-activated");
@@ -171,6 +172,7 @@
         t.done();
       }));
     });
+    test_driver.prepare_for_input();
     document.body.appendChild(b);
     test_driver.click(b);
   }, "Same-site window, user-activated");
@@ -193,6 +195,7 @@
         t.done();
       }));
     });
+    test_driver.prepare_for_input();
     document.body.appendChild(b);
     test_driver.click(b);
   }, "Cross-site window, user-activated");

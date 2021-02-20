@@ -60,6 +60,7 @@ function Reset() {
 }
 
 function run() {
+  test_driver.prepare_for_input().then(function() {
     ALL_POINTERS.forEach(function(pointerType) {
         promise_test (async() => {
             Reset();
@@ -155,6 +156,7 @@ function run() {
             document.setPointerCaptureOnPointerDown = false;
         }, "Test " + pointerType + "pointer capture in same-origin frame: Pointerdown with set capture at outer frame, then release on next pointermove.");
     });
+  });
 }
 </script>
 

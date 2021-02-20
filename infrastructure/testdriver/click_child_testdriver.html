@@ -5,6 +5,7 @@
 <button id="button">Button</button>
 <div id="log">FAIL</div>
 <script>
+test_driver.prepare_for_input();
 let button = document.getElementById("button");
 button.addEventListener("click", () =>
     document.getElementById("log").textContent = "PASS");

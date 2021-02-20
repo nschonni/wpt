@@ -31,6 +31,7 @@ async_test(t => {
     clickCountList.push(e.detail);
   });
 
+  test_driver.prepare_for_input();
   let div = document.getElementById("test");
   var actions = new test_driver.Actions();
   actions.pointerMove(0, 0, {origin: test})

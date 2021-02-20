@@ -67,7 +67,7 @@ function runTest() {
   target_div.scrollTo(0, 0);
 
   promise_test (async (t) => {
-    await waitForCompositorCommit();
+    await test_driver.prepare_for_input();
     target_div.addEventListener("scrollend", onElementScrollEnd);
     document.addEventListener("scrollend", onDocumentScrollEnd);
 

@@ -11,6 +11,7 @@
 
 <script>
 async_test(t => {
+  test_driver.prepare_for_input();
   let text_box = document.getElementById("text");
   let actions = new test_driver.Actions()
     .pointerMove(0, 0, {origin: text_box})

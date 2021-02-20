@@ -4,6 +4,9 @@
 <meta name="assert" content="Should be able to use the scroll timeline to drive the animation timing">
 <link rel="match" href="animation-ref.html">
 
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
 <script src="/web-animations/testcommon.js"></script>
 <script src="/common/reftest-wait.js"></script>
 
@@ -60,7 +63,7 @@
     const maxScroll = scroller.scrollHeight - scroller.clientHeight;
     scroller.scrollTop = 0.5 * maxScroll;
 
-    waitForAnimationFrames(2).then(_ => {
+    test_driver.prepare_for_input().then(_ => {
         takeScreenshot();
     });
   });

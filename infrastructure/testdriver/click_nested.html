@@ -15,6 +15,8 @@ window.open("about:blank")
 var child = window.open("click_outer_child.html")
 window.open("about:blank")
 
+test_driver.prepare_for_input();
+
 addEventListener("load",() => {
     child.addEventListener("load", () => {
         let doc = child.frames[2].document;

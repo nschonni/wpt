@@ -20,10 +20,12 @@ target.addEventListener("contextmenu", contextmenuTest.step_func((e)=>{
   // TODO(crbug.com/1150441,crbug.com/1150442): Test pointerId, pointerType are properly populated from the pointer event stream
 }));
 
-let eventWatcher = new EventWatcher(contextmenuTest, target, ["contextmenu"]);
-let actions = new test_driver.Actions();
-actions = actions.pointerMove(0,0, {origin:target})
-  .pointerDown({button:actions.ButtonType.RIGHT})
-  .pointerUp({button:actions.ButtonType.RIGHT});
-Promise.all([eventWatcher.wait_for("contextmenu"), actions.send()]).then(()=>contextmenuTest.done());
+test_driver.prepare_for_input().then(function() {
+  let eventWatcher = new EventWatcher(contextmenuTest, target, ["contextmenu"]);
+  let actions = new test_driver.Actions();
+  actions = actions.pointerMove(0,0, {origin:target})
+    .pointerDown({button:actions.ButtonType.RIGHT})
+    .pointerUp({button:actions.ButtonType.RIGHT});
+  Promise.all([eventWatcher.wait_for("contextmenu"), actions.send()]).then(()=>contextmenuTest.done());
+});
 </script>

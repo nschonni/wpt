@@ -10,7 +10,9 @@
 
 <script>
 setup({single_test: true});
+test_driver.prepare_for_input();
 addEventListener("load", () => {
+    test_driver.prepare_for_input();
     let child = frames[0];
     let button = child.document.getElementById("button");
     test_driver
